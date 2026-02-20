@@ -420,6 +420,14 @@ function showResult(){
     document.getElementById("resultDescription").innerText =
         "Classement complet des idéologies selon vos réponses :";
 
+    const neutralBtn = document.createElement("button");
+    neutralBtn.className = "answer";
+    neutralBtn.innerText = "Je ne sais pas / Neutre";
+    neutralBtn.style.background = "#555";
+    neutralBtn.style.opacity = "0.8";
+    neutralBtn.onclick = () => selectAnswer({});
+    answersDiv.appendChild(neutralBtn);
+
     const resultList = document.getElementById("resultList");
     resultList.innerHTML = "";
 
