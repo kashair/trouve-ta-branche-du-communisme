@@ -426,17 +426,13 @@ function showResult(){
     results.forEach(r => {
         const li = document.createElement("li");
         li.innerText = `${ideologyNames[r.name]} : ${r.percent}%`;
+        li.style.setProperty('--percent', r.percent + '%');
+        li.style.width = '100%'; // largeur totale du li
+        li.style.position = 'relative';
+        li.style.overflow = 'hidden';
+        li.style.background = `linear-gradient(to right, #3498db ${r.percent}%, #ecf0f1 ${r.percent}%)`;
         resultList.appendChild(li);
     });
-
-        // width de la barre correspondant au pourcentage
-li.style.setProperty('--percent', r.percent + '%');
-li.style.width = '100%'; // largeur totale du li
-li.style.position = 'relative';
-li.style.overflow = 'hidden';
-
-// créer la barre de fond dynamique
-li.style.background = `linear-gradient(to right, #3498db ${r.percent}%, #ecf0f1 ${r.percent}%)`;
 }
 
 function restart(){
