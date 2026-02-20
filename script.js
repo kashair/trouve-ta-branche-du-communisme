@@ -430,7 +430,7 @@ function showResult(){
         li.style.width = '100%'; // largeur totale du li
         li.style.position = 'relative';
         li.style.overflow = 'hidden';
-        li.style.background = `linear-gradient(to right, #ff3333 ${r.percent}%, #ffffff ${r.percent}%)`;
+        li.style.background = `linear-gradient(to right, #ff3333 ${r.percent}%, #ff4d4d ${r.percent}%)`;
         resultList.appendChild(li);
     });
 }
