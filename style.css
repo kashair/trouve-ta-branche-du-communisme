@@ -82,44 +82,77 @@ button:hover {
     margin: 0 auto;
 }
 
-/* Chaque ligne du classement */
+/* Chaque ligne du classement - modern / polished */
 #resultList li {
-    margin: 10px 0;
-    padding: 8px 12px;
-    background-color: #ecf0f1;
-    border-radius: 8px;
+    margin: 12px 0;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
     text-align: left;
-    font-weight: 500;
-    color: #000000;
-    transition: transform 0.2s;
+    font-weight: 600;
+    color: #ffffff;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    overflow: hidden;
 }
 
-/* Effet hover */
+/* Hover lift */
 #resultList li:hover {
-    transform: scale(1.03);
-    background-color: #dfe6e9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.45);
 }
 
-/* Barre de pourcentage derrière le texte */
+/* Filled progress behind the text using CSS variable set from JS */
 #resultList li::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    border-radius: 8px;
-    z-index: -1;
-    background-color: #ff3333;
-    opacity: 0.3;
-    width: 0%; /* sera ajusté via JS */
+    border-radius: 12px;
+    z-index: 0;
+    background: linear-gradient(90deg, rgba(255,77,77,0.95), rgba(255,120,120,0.9));
+    opacity: 0.12;
+    width: var(--percent, 0%);
+    transition: width 850ms cubic-bezier(.2,.9,.2,1);
 }
 
-/* Gagnant principal mis en valeur */
+/* Ensure content sits above the progress bar */
+#resultList li > * { z-index: 1; }
+
+/* Winner highlighted */
 #resultList li:first-child {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+/* Name on the left */
+.result-name {
+    display: inline-block;
+    color: inherit;
+}
+
+/* Percent badge on the right */
+.result-percent {
+    min-width: 56px;
+    text-align: right;
+    background: rgba(0,0,0,0.25);
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+
+/* Smaller screens */
+@media screen and (max-width: 480px) {
+    #resultList li { padding: 12px; }
+    .result-percent { min-width: 48px; padding: 5px 8px; font-size: 0.9rem; }
 }
 
 /* Responsive */
@@ -136,4 +169,14 @@ button:hover {
 }
 .skip-btn:hover {
     background: #777;
+}
+
+/* Style pour le bouton Retour */
+.back-btn {
+    background: #444;
+    opacity: 0.9;
+    margin-top: 6px;
+}
+.back-btn:hover {
+    background: #666;
 }
