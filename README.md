@@ -12,4 +12,4 @@ Branches disponible:
 - Maoisme
 
 URL:
-https://kashair.github.io/trouve-ta-branche-du-communisme/
+kashair.github.io/9ideologies/ 
